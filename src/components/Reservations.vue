@@ -5,9 +5,10 @@
       <li v-for="reservation in reservations" :key="reservation.id">
         {{ reservation.date }}
         {{ reservation.quantiteReserv }}
-        <!-- {{ reservation.date }} libelle materiel-->
-        <button> X </button>
+        <!-- {{ reservation.libelle }} libelle materiel-->
+        <button class="supprimer"> X </button>
       </li>
+      <button class="valider"> Valider la réservation </button>
     </ul>
   </div>
 </template>
@@ -39,6 +40,16 @@ li {
 }
 a {
   color: #42b983;
+}
+.supprimer{
+  color: red;
+}
+.valider{
+  font-style: italic;
+  border-radius: 10px;
+  background-color:dimgrey;
+  margin-left: 300px;
+  font-size: 125%;
 }
 </style>
 

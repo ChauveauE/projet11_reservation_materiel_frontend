@@ -1,10 +1,11 @@
 <template>
   <div>
+    <h2> Sélectionner le matériel à réserver </h2>
     <ul>
-      <li v-for="materiel in materiels" :key="materiel.id">
-        {{ materiel.libelle }}
-        <button> X </button>
+      <!-- <li> calendar date </li> -->
+      <li v-bind:style="{ display: ['-webkit-box', '-ms-flexbox', 'flex'] }">
       </li>
+      <button> Rechercher </button>
     </ul>
   </div>
 </template>
@@ -36,6 +37,10 @@ li {
 }
 a {
   color: #42b983;
+}
+button{
+  font-style: italic;
+  border-radius: 10px;
 }
 </style>
 
