@@ -3,24 +3,34 @@
     <h2> Connexion </h2>
     <ul>
       <label for="email" id="email"> Email: </label>
-      <input type="textarea" name="email" id="email" required /><br>
+      <input type="textarea" name="email" id="email" v-bind="email" required /><br><br>
       <label for="mdp" id="mdp"> Mot de passe: </label>
-      <input type="textarea" name="mdp" id="mdp" required /><br>
+      <input type="textarea" name="mdp" id="mdp" v-bind="mdp" required /><br><br>
       <button class="connecter">Se connecter </button>
     </ul>
   </div>
 </template>
 
 <script>
+// import axios from '../api';
 
 export default {
   name: 'Connexions',
+  data() {
+    return {
+      email: '',
+      mdp: '',
+    };
+  },
   computed: {
     connexions() {
       return this.$store.getters.connexions;
     },
   },
+  method: {
+  },
 };
+
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
@@ -44,5 +54,12 @@ a {
   border-radius: 10px;
   background-color:dimgrey;
   margin-left: 300px;
+}
+label{
+  display: inline-block;
+  width: 175px;
+}
+input{
+  display: inline;
 }
 </style>

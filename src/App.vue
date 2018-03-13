@@ -1,11 +1,6 @@
 <template>
   <div id="app">
     <img src="./assets/tableau.jpg">
-    <Reservations/>
-    <Materiels/>
-    <Ecoles/>
-    <Professors/>
-    <Connexions/>
     <router-view/>
   </div>
 </template>

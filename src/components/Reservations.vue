@@ -3,23 +3,55 @@
     <h2> Récapitulatif de la réservation </h2>
     <ul>
       <li v-for="reservation in reservations" :key="reservation.id">
-        {{ reservation.date }}
-        {{ reservation.quantiteReserv }}
-        <!-- {{ reservation.libelle }} libelle materiel-->
-        <button class="supprimer"> X </button>
+        date de la réservation: {{ reservation.date }}
+        <!-- matériel réservé: {{ reservation.libelle }} -->
+        / matériel réservé:
+        / quantité réservée: {{ reservation.quantiteReserv }}
+        <button class="supprimer" v-on:click="deleteReserv()"> X </button>
       </li>
-      <button class="valider"> Valider la réservation </button>
+      <br><br><br>
+      <button class="valider" v-on:click="createReserv()"> Valider la réservation </button>
     </ul>
   </div>
 </template>
 
 <script>
+import axios from '../api';
 
 export default {
   name: 'Reservations',
+  data() {
+    return {
+      date: '',
+      // libelle: '',
+      quantiteReserv: '',
+    };
+  },
   computed: {
     reservations() {
       return this.$store.getters.reservations;
+    },
+  },
+  method: {
+    deleteReserv() {
+      axios.delete('/reservations', { date: '', quantiteReserv: '' })
+        // .then((data) => console.log(data));
+        .then((response) => {
+          this.reservations = response.data;
+        })
+        .catch((e) => {
+          console.log(e);
+        });
+    },
+    createReserv() {
+      axios.put('/reservations', { date: '', quantiteReserv: '' })
+        // .then((data) => console.log(data));
+        .then((response) => {
+          this.reservations = response.data;
+        })
+        .catch((e) => {
+          console.log(e);
+        });
     },
   },
 };
