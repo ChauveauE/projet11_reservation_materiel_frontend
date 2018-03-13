@@ -61,5 +61,6 @@ label{
 }
 input{
   display: inline;
+  border-radius: 3px;
 }
 </style>

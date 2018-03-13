@@ -2,15 +2,20 @@
   <div>
     <h2> Récapitulatif de la réservation </h2>
     <ul>
+    <div class="col-xs-4 col-xs-offset-4">
       <li v-for="reservation in reservations" :key="reservation.id">
-        date de la réservation: {{ reservation.date }}
+        <fieldset class="marge">
+        date de la réservation: {{ reservation.date }}<br>
         <!-- matériel réservé: {{ reservation.libelle }} -->
-        / matériel réservé:
-        / quantité réservée: {{ reservation.quantiteReserv }}
-        <button class="supprimer" v-on:click="deleteReserv()"> X </button>
+        / matériel réservé: <br>
+        / quantité réservée: {{ reservation.quantiteReserv }}<br>
+        <button class="supprimer" v-on:click="deleteReserv()">Supprimer</button>
+        </fieldset>
       </li>
-      <br><br><br>
-      <button class="valider" v-on:click="createReserv()"> Valider la réservation </button>
+     </div>
+      <button class="valider" style="margin-top: 15px;" v-on:click="createReserv()">
+        Valider la réservation
+      </button>
     </ul>
   </div>
 </template>
@@ -67,7 +72,7 @@ ul {
   padding: 0;
 }
 li {
-  display: inline-block;
+  display: inline;
   margin: 0 10px;
 }
 a {
@@ -82,6 +87,12 @@ a {
   background-color:dimgrey;
   margin-left: 300px;
   font-size: 125%;
+}
+.marge{
+  border-radius: 8px;
+  -moz-border-radius: 8px;
+  -webkit-border-radius: 8px;
+  border: 2px solid dimgrey;
 }
 </style>
 
