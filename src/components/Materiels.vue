@@ -2,13 +2,16 @@
   <div>
     <h2> Sélectionner le matériel à réserver </h2>
     <ul>
-      <!-- <li> calendar date </li> -->
       <li v-bind:style="{ display: ['-webkit-box', '-ms-flexbox', 'flex'] }">
       </li>
+      <label for="date" id="date">Date:</label>
+      <input type="date" name="dateReservation" exept="dimanche" required/>
       <input type="text" id="materiels">
-      <button class="rechercher"> Rechercher </button><br><br>
+      <button class="rechercher">Rechercher</button><br><br>
       <li v-for="materiel in materiels" :key="materiel.id">
         {{ materiel.libelle }}
+        /quantité disponible:{{ materiel.quantiteDispo }}
+        / quantité souhaitée: <input type="text" class="quantiteReserv"> <br><br>
       </li>
     </ul>
     <button class="valider" v-on:click="createReserv()"> Valider la saisie </button>
@@ -37,7 +40,7 @@ ul {
   padding: 0;
 }
 li {
-  display: inline-block;
+  display: inline;
   margin: 0 10px;
 }
 a {
@@ -58,7 +61,9 @@ a {
 input{
   display: center;
   width: 150px;
-  margin-left: 200px;
+}
+.quantiteReserv{
+  width: 30px;
 }
 </style>
 
