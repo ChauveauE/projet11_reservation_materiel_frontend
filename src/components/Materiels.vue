@@ -14,7 +14,8 @@
         / quantité souhaitée: <input type="text" class="quantiteReserv"> <br><br>
       </li>
     </ul>
-    <button class="valider" v-on:click="createReserv()"> Valider la saisie </button>
+    <button class="rechercher" v-on:click="createReserv()"> Valider la saisie </button><br><br>
+    <button class="valider">Visualiser la réservation</button>
   </div>
 </template>
 

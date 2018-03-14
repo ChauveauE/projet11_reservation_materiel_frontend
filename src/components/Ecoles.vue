@@ -3,6 +3,7 @@
     <h2> Sélectionner une école </h2>
     <ul>
       <label for="ecole" id="ecole"> Ecole: </label>
+      <!-- ajouter un menu déroulant dynamique + mettre code derrière BTN -->
       <select id="ecole">
         <option></option>
         <option>iut la roche sur yon</option>
